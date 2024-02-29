@@ -1,5 +1,6 @@
 import { Box, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
+import BasicSelect from "./BasicSelect"
 
 const FormTeacher = () => {
   return (
@@ -25,6 +26,7 @@ const FormTeacher = () => {
       <TextField id="outlined-basic" label="Tema de la clase" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
       <TextField id="outlined-basic" label="Ingrese los subtemas de clase, separados uno a uno por comas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
       <TextField id = "outlined-basic" label="Ingrese el número de preguntas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
+      <BasicSelect/>
       
         <label className="custum-file-upload" >
           <div className="icon">
