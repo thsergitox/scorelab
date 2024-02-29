@@ -5,7 +5,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import Sidebar from './components/Sidebar';
 import LoginTeachers from './components/LoginTeachers';
-import Question from './components/Question';
+import Question from './components/Questions';
 
 function App() {
   

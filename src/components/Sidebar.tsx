@@ -9,8 +9,8 @@ import '../styles/sidebar.css'
 import FormTeacher from './FormTeacher';
 import Instructions from './Instructions';
 import Navbar from './Navbar';
-import Question from './Question';
 import Options from './Options';
+import Questions from './Questions';
 
 const drawerWidth = 270
 
@@ -70,11 +70,7 @@ const sidebar = () => {
             <FormTeacher/>
             <Instructions/>
           </Box>
-          <Box sx={{display:'flex', flexDirection: 'column', gap:'1rem', bgcolor:'#F7F9FC', borderRadius:'40px'}}>
-            <Options/>
-            <Options/>
-            <Options/>
-        </Box>
+          <Questions/>
         </div>
     </div>
   )
