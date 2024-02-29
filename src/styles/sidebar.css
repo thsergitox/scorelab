@@ -1,0 +1,49 @@
+.toolbar{
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.ListItemButton{
+    display: flex;
+    
+}
+
+  
+.logo-text{
+    padding-top: 1.5rem;
+    padding-bottom: .5rem;
+    
+    font-weight: bold;
+    font-family: "Staatliches", sans-serif !important;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 2.5rem !important;
+}
+
+.appbar{
+    background-color: #fff !important;
+    color: #000;
+}
+.drawer{
+    margin: 0;
+    padding: 0;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper{
+    background-color: #043C7C !important;
+    color: #fff !important;
+}
+
+.content{
+    
+    gap: 0;
+    width: 0;
+}
+.box-content{
+    display: flex;
+    gap: 2rem;
+    margin-left: 270px;
+    margin-top: 50px;
+}
