@@ -24,6 +24,7 @@ const FormTeacher = () => {
 
       <TextField id="outlined-basic" label="Tema de la clase" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
       <TextField id="outlined-basic" label="Ingrese los subtemas de clase, separados uno a uno por comas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
+      <TextField id = "outlined-basic" label="Ingrese el número de preguntas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
       
         <label className="custum-file-upload" >
           <div className="icon">
