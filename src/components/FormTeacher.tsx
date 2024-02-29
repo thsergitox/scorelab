@@ -1,4 +1,4 @@
-import { Box, Input, TextField, Typography } from "@mui/material"
+import { Box, Button, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
 import BasicSelect from "./BasicSelect"
 
@@ -37,6 +37,7 @@ const FormTeacher = () => {
             </div>
             <Input type="file" id="file"/>
     </label>
+    <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem'}}>Crear quiz</Button>
 
 
     </Box>
