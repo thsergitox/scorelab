@@ -1,4 +1,4 @@
-import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
+import { Box, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
 import InboxIcon from '@mui/icons-material/Inbox'
 import QuizIcon from '@mui/icons-material/Quiz'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -9,6 +9,8 @@ import '../styles/sidebar.css'
 import FormTeacher from './FormTeacher';
 import Instructions from './Instructions';
 import Navbar from './Navbar';
+import Question from './Question';
+import Options from './Options';
 
 const drawerWidth = 270
 
@@ -63,12 +65,17 @@ const sidebar = () => {
             </List>
           </Toolbar>
         </Drawer>
-        <div style={{display:'flex'}} className='box-content'>
-        <FormTeacher/>
-        <Instructions/>
+        <div style={{display:'flex', flexDirection:'column'}} className='box-content'>
+          <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem'}}>
+            <FormTeacher/>
+            <Instructions/>
+          </Box>
+          <Box sx={{display:'flex', flexDirection: 'column', gap:'1rem', bgcolor:'#F7F9FC', borderRadius:'40px'}}>
+            <Options/>
+            <Options/>
+            <Options/>
+        </Box>
         </div>
-    
-      
     </div>
   )
 }

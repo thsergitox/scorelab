@@ -42,7 +42,8 @@ const Navbar = () => {
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton className='user-button' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton className='user-button' onClick={handleOpenUserMenu} sx={{ p: 0, display:'flex', gap:'1rem'}}>
+                <Typography textAlign="center">User</Typography>
                 <Face6Icon fontSize='large'/>
               </IconButton>
             </Tooltip>

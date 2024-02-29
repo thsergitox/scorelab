@@ -13,8 +13,8 @@ const BasicSelect = () => {
   };
 
   return (
-    <Box sx={{ minWidth: 120, bgcolor: '#F7F9FC' }}>
-      <FormControl fullWidth>
+    <Box sx={{ minWidth: 120, bgcolor: '#F7F9FC', width:'100%'}}>
+      <FormControl fullWidth >
         <InputLabel id="demo-simple-select-label">Elija el formato de preguntas</InputLabel>
         <Select
           labelId="demo-simple-select-label"

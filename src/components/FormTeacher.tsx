@@ -1,8 +1,12 @@
 import { Box, Button, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
 import BasicSelect from "./BasicSelect"
+import * as React from 'react';
 
 const FormTeacher = () => {
+  const [tema, setTema] = React.useState('');
+  const [numeroPreguntas, setNumeroPreguntas] = React.useState('');
+  const [subtemas, setSubtemas] = React.useState('');
   return (
     <>
       <Box sx={{
@@ -17,15 +21,40 @@ const FormTeacher = () => {
       paddingBottom: '1.5rem',
       paddingLeft: '2rem',
       paddingRight: '2rem',
-      borderRadius: '40px'
+      borderRadius: '40px',
+      width:'60%',
       
       
     }}>
       <Typography sx={{mt:'1rem'}} className="title-form">Crea tu quiz personalizado</Typography>
-
-      <TextField id="outlined-basic" label="Tema de la clase" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
-      <TextField id="outlined-basic" label="Ingrese los subtemas de clase, separados uno a uno por comas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
-      <TextField id = "outlined-basic" label="Ingrese el número de preguntas" variant="outlined" sx={{bgcolor:'#F7F9FC'}} />
+      <TextField
+        id="outlined-controlled"
+        label="Tema de la clase"
+        value={tema}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setTema(event.target.value);
+        }}
+        sx={{bgcolor:'#F7F9FC', width:'100%' }}
+      />
+      <TextField
+        id="outlined-controlled"
+        label="Ingrese los subtemas de clase, separados uno a uno por comas"
+        value={subtemas}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setSubtemas(event.target.value);
+        }}
+        sx={{bgcolor:'#F7F9FC', width:'100%'}}
+      />
+            <TextField
+        id="outlined-controlled"
+        label="Ingrese el número de preguntas"
+        value={numeroPreguntas}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setNumeroPreguntas(event.target.value);
+        }}
+        sx={{bgcolor:'#F7F9FC', width:'100%'}}
+      />
+      
       <BasicSelect/>
       
         <label className="custum-file-upload" >
