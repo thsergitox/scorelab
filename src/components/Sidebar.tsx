@@ -1,4 +1,4 @@
-import { AppBar, Box, CssBaseline, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
+import { Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography } from '@mui/material'
 import InboxIcon from '@mui/icons-material/Inbox'
 import QuizIcon from '@mui/icons-material/Quiz'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
@@ -8,24 +8,16 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import '../styles/sidebar.css'
 import FormTeacher from './FormTeacher';
 import Instructions from './Instructions';
+import Navbar from './Navbar';
 
 const drawerWidth = 270
 
 
 const sidebar = () => {
   return (
-    <>
-      <CssBaseline/>
+    <div className='sidebar'>
       
-      <AppBar
-        position='fixed' sx={{width:'calc(100% - ${drawerWidth}px)', ml: '${drawerWidth}'}}    
-        className='appbar'>
-        <Toolbar>
-          <Typography variant="h6" noWrap component="div">
-              User
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Navbar/>
 
         <Drawer
           sx={{
@@ -34,6 +26,7 @@ const sidebar = () => {
             '& .MuiDrawer-paper': {
               width: drawerWidth,
               boxSizing: 'border-box',
+              
 
             },
             
@@ -76,7 +69,7 @@ const sidebar = () => {
         </div>
     
       
-    </>
+    </div>
   )
 }
 
