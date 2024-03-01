@@ -2,15 +2,49 @@ import { Box, Button, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
 import BasicSelect from "./BasicSelect"
 import * as React from 'react';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import axios from 'axios';
 
 interface FormsProps {
   setIsVisible: (isVisible: boolean) => void;
 }
 
 const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
+
+
+
   const [tema, setTema] = React.useState('');
   const [numeroPreguntas, setNumeroPreguntas] = React.useState('');
   const [subtemas, setSubtemas] = React.useState('');
+  const [tipoPregunta, setTipoPregunta] = React.useState('');
+  
+
+  const handleChange = (event: SelectChangeEvent) => {
+    setTipoPregunta(event.target.value as string);
+  };
+  
+  
+  const handleSubmit = async () => {
+    const quizData = {
+      tema: tema,
+      subtemas: subtemas.split(', ').filter(Boolean), 
+      numeroPreguntas: numeroPreguntas,
+      tipoPregunta: tipoPregunta
+    };
+  
+    try {
+      const response = await axios.post('', quizData);
+      console.log(response.data);
+  
+    } catch (error) {
+      console.error("Error al enviar datos", error);
+    }
+  };
+
+
 
 
   return (
@@ -60,8 +94,23 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
         }}
         sx={{bgcolor:'#F7F9FC', width:'100%'}}
       />
+      <Box sx={{ minWidth: 120, bgcolor: '#F7F9FC', width:'100%'}}>
+      <FormControl fullWidth >
+        <InputLabel id="demo-simple-select-label">Elija el formato de preguntas</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={tipoPregunta}
+          label="Format"
+          onChange={handleChange}
+        >
+          <MenuItem value={'opcion-multiple'}>Opcion múltiple</MenuItem>
+          <MenuItem value={'v-f'}>Verdadero/Falso</MenuItem>
+          <MenuItem value={'texto-corto'}>Respuesta corta</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
       
-      <BasicSelect/>
       
         <label className="custum-file-upload" >
           <div className="icon">
@@ -72,7 +121,7 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
             </div>
             <Input type="file" id="file"/>
     </label>
-    <Button onClick={() => setIsVisible(true)} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Generar preguntas</Button>
+    <Button  onClick={handleSubmit} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Generar preguntas</Button>
 
 
     </Box>

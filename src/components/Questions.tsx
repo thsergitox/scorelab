@@ -4,6 +4,7 @@ import Options from './Options'
 interface QuestionsProps {
   isVisible: boolean;
 }
+
 const Questions: React.FC<QuestionsProps> = ({ isVisible })=> {
   if (!isVisible) return null;
 
