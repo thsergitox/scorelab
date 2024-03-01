@@ -9,13 +9,14 @@ import '../styles/sidebar.css'
 import FormTeacher from './FormTeacher';
 import Instructions from './Instructions';
 import Navbar from './Navbar';
-import Options from './Options';
 import Questions from './Questions';
+import React, { useState } from 'react';
 
 const drawerWidth = 270
 
 
 const sidebar = () => {
+  const [isVisible, setIsVisible] = useState(false);
   return (
     <div className='sidebar'>
       
@@ -67,10 +68,10 @@ const sidebar = () => {
         </Drawer>
         <div style={{display:'flex', flexDirection:'column'}} className='box-content'>
           <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem'}}>
-            <FormTeacher/>
+            <FormTeacher setIsVisible={setIsVisible}/>
             <Instructions/>
           </Box>
-          <Questions/>
+          <Questions isVisible={isVisible} />
         </div>
     </div>
   )

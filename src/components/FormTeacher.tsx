@@ -3,10 +3,16 @@ import '../styles/formTeacher.css'
 import BasicSelect from "./BasicSelect"
 import * as React from 'react';
 
-const FormTeacher = () => {
+interface FormsProps {
+  setIsVisible: (isVisible: boolean) => void;
+}
+
+const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
   const [tema, setTema] = React.useState('');
   const [numeroPreguntas, setNumeroPreguntas] = React.useState('');
   const [subtemas, setSubtemas] = React.useState('');
+
+
   return (
     <>
       <Box sx={{
@@ -66,7 +72,7 @@ const FormTeacher = () => {
             </div>
             <Input type="file" id="file"/>
     </label>
-    <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Crear quiz</Button>
+    <Button onClick={() => setIsVisible(true)} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Generar preguntas</Button>
 
 
     </Box>
