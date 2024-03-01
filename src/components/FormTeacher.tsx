@@ -44,6 +44,12 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
     }
   };
 
+  const handleButtonClick = async () => {
+
+    await handleSubmit();
+
+    setIsVisible(true);
+  };
 
 
 
@@ -121,7 +127,7 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
             </div>
             <Input type="file" id="file"/>
     </label>
-    <Button  onClick={handleSubmit} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Generar preguntas</Button>
+    <Button  onClick={handleButtonClick} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none'}}>Generar preguntas</Button>
 
 
     </Box>
