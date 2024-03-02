@@ -15,7 +15,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 import '../styles/formTeacher.css'
 import ilustration from '../assets/ilustration.png';
 import ActionAreaCard from './ActionAreaCard';
-import LoginTeachers from './LoginTeachers';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 const cards = ['Generación rápida de quizes', 'Reportes Estadísticos Detallados', 'Personalización Total de Quizes'
@@ -45,7 +44,6 @@ const LandingPage = () => {
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
                 fontWeight: 500,
-                color: 'inherit',
                 textDecoration: 'none',
                 color:'#121212',
               }}

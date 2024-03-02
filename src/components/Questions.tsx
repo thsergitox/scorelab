@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import Options from './Options'
+import { Link } from 'react-router-dom';
 
 interface QuestionsProps {
   isVisible: boolean;
@@ -53,7 +54,6 @@ const Questions: React.FC<QuestionsProps> = ({ isVisible })=> {
           )
         })
       }
-
       <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none', width:'200px', alignSelf:'self-start'}}>Crear Quiz</Button>
     </Box>
   );

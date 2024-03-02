@@ -8,13 +8,19 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const Options = ( {question, options, answer} ) => {
+interface Props {
+  options: string[]; 
+  question: string;
+  answer: string
+}
+
+const Options: React.FC<Props> = ( {question, options, answer} ) => {
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('Elige una opción');
   const [formVisible, setFormVisible] = React.useState(true);
 
-  const cont = 0;
+
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
@@ -24,21 +30,20 @@ const Options = ( {question, options, answer} ) => {
   
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (value === 'question-3') {
-      setHelperText('Respuesta correcta!');
+  
+    // Trim para eliminar espacios en blanco adicionales
+    const trimmedValue = value.trim();
+    const trimmedAnswer = answer.trim();
+  
+    if (trimmedValue === trimmedAnswer) {
+      setHelperText('¡Respuesta correcta!');
       setError(false);
-    } else if (value === 'question-2') {
-      setHelperText('Respuesta incorrecta!');
-      setError(true);
-    } else if (value === 'question-1') {
-        setHelperText('Respuesta incorrecta!');
-        setError(true);
     } else {
-      setHelperText('Por favor selecciona una opción');
+      setHelperText('¡Respuesta incorrecta!');
       setError(true);
     }
   };
+  
 
   const handleButtonClick = () => {
     setFormVisible(false);
@@ -61,7 +66,7 @@ const Options = ( {question, options, answer} ) => {
             <Typography variant='h6' align='left' sx={{display:'flex', alignItems:'center'}}>{question}<Button onClick={handleButtonClick} sx={{ml:1}}><DeleteForeverIcon sx={{m:0, p:0}}/></Button></Typography>
             {
               options.map((option, index) => {
-                return <FormControlLabel key={index} value={`question-${index+1}`} control={<Radio />} label={option} />
+                return <FormControlLabel key={index} value={{option}} control={<Radio />} label={option} />
               })
             }
           </RadioGroup>
