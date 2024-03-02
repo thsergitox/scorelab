@@ -46,5 +46,6 @@ body{
   margin: 0;
   box-sizing: border-box;
   background-color: #DFE8F6 ;
+  scroll-behavior: smooth;
 }
 

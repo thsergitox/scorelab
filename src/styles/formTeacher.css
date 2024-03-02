@@ -49,3 +49,10 @@
   .custum-file-upload input {
     display: none;
   }
+
+  body{
+    background-color: #fff;
+  }
+  .css-27dm0d-MuiPaper-root-MuiAppBar-root{
+    box-shadow: none !important;
+  }

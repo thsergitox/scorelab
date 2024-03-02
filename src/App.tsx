@@ -10,12 +10,13 @@ import Quiz from './components/Quiz';
 import QuizTimer from './components/QuizTimer';
 
 import clientSocket from './network/index';
+import LandingPage from './components/LandingPage';
 function App() {
   
 
   return (
     <>
-      <Sidebar/>
+      <LandingPage/>
     </>
   )
 }
