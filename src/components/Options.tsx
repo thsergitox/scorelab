@@ -14,6 +14,8 @@ const Options = ( {question, options, answer} ) => {
   const [helperText, setHelperText] = React.useState('Elige una opción');
   const [formVisible, setFormVisible] = React.useState(true);
 
+  const cont = 0;
+
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
     setHelperText(' ');
