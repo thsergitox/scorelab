@@ -9,20 +9,30 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 
 import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
 
 import AdbIcon from '@mui/icons-material/Adb';
 import '../styles/formTeacher.css'
 import ilustration from '../assets/ilustration.png';
 import ActionAreaCard from './ActionAreaCard';
-import { Card } from '@mui/material';
+import LoginTeachers from './LoginTeachers';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 
 const cards = ['Generación rápida de quizes', 'Reportes Estadísticos Detallados', 'Personalización Total de Quizes'
 , 'Retroalimentación Instantánea', 'Acceso en Cualquier Momento y Lugar', 'Equidad y transparencia en la Evaluación']
 
 const LandingPage = () => {
 
+  const navigate = useNavigate();
+  
+  const handleCreateEvaluationClick = () => {
+    navigate("/generador"); // Usa la función navigate con la ruta a la que deseas ir
+  };
+
   return (
-    <div>
+
+
+      <div>
         <AppBar position="fixed" sx={{background:'#fff', p:'1rem', boxShadow:'none'}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
@@ -44,7 +54,7 @@ const LandingPage = () => {
               SCORE<span style={{color:'#043C7C'}}>LAB</span>
             </Typography>
   
-            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box onClick={handleCreateEvaluationClick} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -81,7 +91,10 @@ const LandingPage = () => {
             </Box>
   
             <Box sx={{ flexGrow: 0 }}>
-              <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important'}}>Crear evaluación</Button>
+              <Link to="/login" >
+                <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important'}}>Crear evaluación</Button>
+              </Link>
+              
 
             </Box>
           </Toolbar>
@@ -91,7 +104,10 @@ const LandingPage = () => {
         <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem', justifyContent:'space-between', mt:'7rem'}}>
             <Box sx={{display:'flex', flexDirection: 'column', width:'40%', gap:'1rem'}}>
                 <Typography variant="h2" sx={{color:'#000', fontWeight:500, textAlign:'left', width:'100%' , fontFamily:'"Staatliches", sans-serif !important', fontSize:'75px'}}>CREA QUIZES PERSONALIZADOS EN SOLO MINUTOS CON <span style={{color:'#043C7C'}}>IA</span></Typography>
-                <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important', width:'200px', border:'none'}}>Crear evaluación</Button>
+                <Link to='./login' >
+                  <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important', width:'200px', border:'none'}}>Crear evaluación</Button>
+                </Link>
+                
             </Box>
             
             <img src={ilustration} alt='ilustration' style={{width:'50%'}}/>
@@ -148,6 +164,8 @@ const LandingPage = () => {
         <Typography variant='body1'>© 2021 ScoreLab. All rights reserved</Typography>
       </footer>
     </div>
+
+    
   )
 }
 

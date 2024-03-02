@@ -8,7 +8,7 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
-const Options = () => {
+const Options = ( {question, options, answer} ) => {
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(false);
   const [helperText, setHelperText] = React.useState('Elige una opción');
@@ -42,6 +42,8 @@ const Options = () => {
     setFormVisible(false);
   };
 
+
+
   return (
     <>
     {formVisible && (
@@ -54,7 +56,9 @@ const Options = () => {
             value={value}
             onChange={handleRadioChange}
           >
-            <Typography variant='h6' align='left' sx={{display:'flex', alignItems:'center'}}>¿Cuál es la capital de Francia? <Button onClick={handleButtonClick} sx={{ml:1}}><DeleteForeverIcon sx={{m:0, p:0}}/></Button></Typography>  
+            <Typography variant='h6' align='left' sx={{display:'flex', alignItems:'center'}}>{question}<Button onClick={handleButtonClick} sx={{ml:1}}><DeleteForeverIcon sx={{m:0, p:0}}/></Button></Typography>
+            
+           
             <FormControlLabel value="question-1" control={<Radio />} label="Lima" />
             <FormControlLabel value="question-2" control={<Radio />} label="Seul" />
             <FormControlLabel value="question-3" control={<Radio />} label="Paris" />

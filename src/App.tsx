@@ -11,12 +11,21 @@ import QuizTimer from './components/QuizTimer';
 
 import clientSocket from './network/index';
 import LandingPage from './components/LandingPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   
 
   return (
     <>
-      <LandingPage/>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage/>}/>
+          <Route path="/login" element={<LoginTeachers/>}/>
+          <Route path="/generador" element={<Sidebar/>}/>
+        </Routes>
+      </Router>
+      
     </>
   )
 }

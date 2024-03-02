@@ -51,6 +51,8 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
     setIsVisible(true);
   };
 
+  
+
 
 
   return (
