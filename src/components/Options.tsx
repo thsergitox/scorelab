@@ -66,7 +66,7 @@ const Options: React.FC<Props> = ( {question, options, answer} ) => {
             <Typography variant='h6' align='left' sx={{display:'flex', alignItems:'center'}}>{question}<Button onClick={handleButtonClick} sx={{ml:1}}><DeleteForeverIcon sx={{m:0, p:0}}/></Button></Typography>
             {
               options.map((option, index) => {
-                return <FormControlLabel key={index} value={{option}} control={<Radio />} label={option} />
+                return <FormControlLabel key={index} value={option} control={<Radio/>} label={option} />
               })
             }
           </RadioGroup>

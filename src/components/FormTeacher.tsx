@@ -1,6 +1,5 @@
 import { Box, Button, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
-import BasicSelect from "./BasicSelect"
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -71,8 +70,7 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
       paddingRight: '2rem',
       borderRadius: '40px',
       width:'60%',
-      
-      
+
     }}>
       <Typography sx={{mt:'1rem'}} className="title-form">Crea tu quiz personalizado</Typography>
       <TextField
@@ -93,15 +91,7 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
         }}
         sx={{bgcolor:'#F7F9FC', width:'100%'}}
       />
-            <TextField
-        id="outlined-controlled"
-        label="Ingrese el número de preguntas"
-        value={numeroPreguntas}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-          setNumeroPreguntas(event.target.value);
-        }}
-        sx={{bgcolor:'#F7F9FC', width:'100%'}}
-      />
+       
       <Box sx={{ minWidth: 120, bgcolor: '#F7F9FC', width:'100%'}}>
       <FormControl fullWidth >
         <InputLabel id="demo-simple-select-label">Elija el formato de preguntas</InputLabel>

@@ -11,6 +11,7 @@ import Instructions from './Instructions';
 import Navbar from './Navbar';
 import Questions from './Questions';
 import React, { useState } from 'react';
+import Qrlink from './Qrlink';
 
 const drawerWidth = 270
 
@@ -69,7 +70,8 @@ const sidebar = () => {
             <FormTeacher setIsVisible={setIsVisible}/>
             <Instructions/>
           </Box>
-          <Questions isVisible={isVisible} />
+          <Questions setIsVisible={setIsVisible} isVisible={isVisible} />
+          <Qrlink isVisible={false} link='' />
         </div>
     </div>
   )

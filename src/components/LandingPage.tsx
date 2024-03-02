@@ -16,6 +16,10 @@ import '../styles/formTeacher.css'
 import ilustration from '../assets/ilustration.png';
 import ActionAreaCard from './ActionAreaCard';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import generator from '../assets/quiz-demostracion.png';
+import elegir from '../assets/elegir-preguntas.png';
+import qrimage from '../assets/Untitled.png';
+import quiz from '../assets/quiz.png';
 
 const cards = ['Generación rápida de quizes', 'Reportes Estadísticos Detallados', 'Personalización Total de Quizes'
 , 'Retroalimentación Instantánea', 'Acceso en Cualquier Momento y Lugar', 'Equidad y transparencia en la Evaluación']
@@ -44,6 +48,7 @@ const LandingPage = () => {
                 mr: 2,
                 display: { xs: 'none', md: 'flex' },
                 fontWeight: 500,
+
                 textDecoration: 'none',
                 color:'#121212',
               }}
@@ -88,9 +93,9 @@ const LandingPage = () => {
               
             </Box>
   
-            <Box sx={{ flexGrow: 0 }}>
-              <Link to="/login" >
-                <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important'}}>Crear evaluación</Button>
+            <Box sx={{ flexGrow: 0, display:'flex', alignItems:'start', justifyContent:'left', textAlign:'left' }}>
+              <Link to={'/login'}>
+                <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important'}}>Pruébalo ya</Button>
               </Link>
               
 
@@ -99,12 +104,13 @@ const LandingPage = () => {
         </Container>
       </AppBar>
       <Container>
-        <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem', justifyContent:'space-between', mt:'7rem'}}>
-            <Box sx={{display:'flex', flexDirection: 'column', width:'40%', gap:'1rem'}}>
+        <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem', justifyContent:'space-between', mt:'7rem', textAlign:'left'}}>
+            <Box sx={{display:'flex', flexDirection: 'column', width:'40%', gap:'1rem', justifyContent:'left', alignContent:'start'}}>
                 <Typography variant="h2" sx={{color:'#000', fontWeight:500, textAlign:'left', width:'100%' , fontFamily:'"Staatliches", sans-serif !important', fontSize:'75px'}}>CREA QUIZES PERSONALIZADOS EN SOLO MINUTOS CON <span style={{color:'#043C7C'}}>IA</span></Typography>
-                <Link to='./login' >
-                  <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important', width:'200px', border:'none'}}>Crear evaluación</Button>
+                <Link to='./login' style={{alignItems:'start'}} >
+                  <Button  variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'40px !important', width:'200px', border:'none'}}>Pruébalo ya</Button>
                 </Link>
+                
                 
             </Box>
             
@@ -124,11 +130,14 @@ const LandingPage = () => {
         </Box>
         <Box sx={{mt:'4rem', bgcolor:"#fff", borderRadius:'40px', p:'1rem'}}>
           <Typography  variant='h4' sx={{fontFamily:'"Staatliches", sans-serif !important', color:'#000', fontSize:'60px', mt:'1rem'}}>CÓMO <span style={{color:'#043C7C'}}>FUNCIONA</span></Typography>
-          <Box sx={{display:'flex', mt:'2.5rem'}} >
-            <img src= {ilustration} style={{width:'50%'}}/>
+          <Box sx={{display:'flex', mt:'2.5rem', gap:'1rem'}} >
+            
+              <img src= {quiz} style={{width:'50%'}}/>
+            
+            
             <Box sx={{display:'flex', flexDirection:'column', mt:'2rem', width:'50%', p:'1rem'}}>
               <Typography variant='h4' sx={{ color:'#000', mt:'1rem', display:'flex'}}><div style={{backgroundColor:'#043C7C', color:'#fff',padding:'.7rem', borderRadius:'50px', width:'20px', height:'20px', alignItems:'center', justifyContent:'center', display:'flex', marginRight:'.7rem', borderColor:'#043C7C'}}>1</div>Crea el cuestionario</Typography>
-              <Typography variant='body1' sx={{color:'#000', mt:'1rem', textAlign:'left'}}>Ingresa el tema principal de la clase junto con los subtemas vistos en la clase. También agrega las diapositivas de la clase para una experiencia más personalizada</Typography>
+              <Typography variant='h6' sx={{color:'#555', mt:'1rem', textAlign:'left'}}>Ingresa el tema principal de la clase junto con los subtemas vistos en la clase. También agrega las diapositivas de la clase para una experiencia más personalizada</Typography>
             </Box>
           </Box>
           <Box sx={{display:'flex', mt:'2.5rem'}} >
@@ -137,19 +146,20 @@ const LandingPage = () => {
               style={{
                 backgroundColor:'#043C7C', color:'#fff',padding:'.7rem', borderRadius:'50px', width:'20px', height:'20px', alignItems:'center', justifyContent:'center', display:'flex', marginRight:'.7rem', borderColor:'#043C7C'
                 }}>2</div>Selecciona las preguntas</Typography>
-              <Typography variant='body1' sx={{color:'#000', mt:'1rem', textAlign:'left'}}>Se generarán una cantidad de preguntas y podrás decidir cuáles seleccionar para la evaluación de los alumnos según creas lo más conveniente.</Typography>
+              <Typography variant='h6' sx={{color:'#555', mt:'1rem', textAlign:'left'}}>Se generarán una cantidad de preguntas y podrás decidir cuáles seleccionar para la evaluación de los alumnos según creas lo más conveniente.</Typography>
             </Box>
-            <img src= {ilustration} style={{width:'50%'}}/>
+            <img src= {elegir} style={{width:'50%'}}/>
             
           </Box>
-          <Box sx={{display:'flex', mt:'2.5rem'}} >
-            <img src= {ilustration} style={{width:'50%'}}/>
+          <Box sx={{display:'flex', mt:'2.5rem', justifyContent:'space-between'}} >
+
+            <img src= {qrimage} style={{width:'30%'}}/>
             <Box sx={{display:'flex', flexDirection:'column', mt:'2rem', width:'50%', p:'1rem'}}>
               <Typography variant='h4' sx={{ color:'#000', mt:'1rem', display:'flex'}}><div 
               style={{
                 backgroundColor:'#043C7C', color:'#fff',padding:'.7rem', borderRadius:'50px', width:'20px', height:'20px', alignItems:'center', justifyContent:'center', display:'flex', marginRight:'.7rem', borderColor:'#043C7C'
                 }}>3</div>Comparte con tus alumnos</Typography>
-              <Typography variant='body1' sx={{color:'#000', mt:'1rem', textAlign:'left'}}>Se generará un link y un qr en caso estés en clase virtual o presencial. Nos adaptamos a tu disponibilidad!</Typography>
+              <Typography variant='h6' sx={{color:'#555', mt:'1rem', textAlign:'left'}}>Se generará un link y un qr en caso estés en clase virtual o presencial. Nos adaptamos a tu disponibilidad!</Typography>
             </Box>
             
           </Box>
