@@ -6,8 +6,7 @@ interface QuestionsProps {
 }
 
 const response = [
-  {
-    "res": [
+
       {
         "question": "¿Quién ideó la primera computadora mecánica?",
         "options": [
@@ -35,8 +34,7 @@ const response = [
         ],
         "answer": "Internet"
       }
-    ]
-  }
+
 ]
 
 const Questions: React.FC<QuestionsProps> = ({ isVisible })=> {
@@ -45,9 +43,17 @@ const Questions: React.FC<QuestionsProps> = ({ isVisible })=> {
   return (
     <Box sx={{display:'flex', flexDirection: 'column', gap:'1rem', bgcolor:'#F7F9FC', borderRadius:'40px', padding:'1rem', paddingLeft:'2rem'}}>
       <Typography sx={{mt:'1rem'}} className="title-form">Elija las preguntas para su evaluación</Typography>
-      <Options  />
-      <Options/>
-      <Options/>
+      {
+        response.map((question, index) => {
+          return (
+            <Box key={index} sx={{display:'flex', flexDirection: 'column', gap:'1rem'}}>
+              
+              <Options question={question.question} options={question.options} answer={question.answer}/>
+            </Box>
+          )
+        })
+      }
+
       <Button variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none', width:'200px', alignSelf:'self-start'}}>Crear Quiz</Button>
     </Box>
   );

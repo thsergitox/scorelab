@@ -59,11 +59,11 @@ const Options = ( {question, options, answer} ) => {
             onChange={handleRadioChange}
           >
             <Typography variant='h6' align='left' sx={{display:'flex', alignItems:'center'}}>{question}<Button onClick={handleButtonClick} sx={{ml:1}}><DeleteForeverIcon sx={{m:0, p:0}}/></Button></Typography>
-            
-           
-            <FormControlLabel value="question-1" control={<Radio />} label="Lima" />
-            <FormControlLabel value="question-2" control={<Radio />} label="Seul" />
-            <FormControlLabel value="question-3" control={<Radio />} label="Paris" />
+            {
+              options.map((option, index) => {
+                return <FormControlLabel key={index} value={`question-${index+1}`} control={<Radio />} label={option} />
+              })
+            }
           </RadioGroup>
           <FormHelperText>{helperText}</FormHelperText>
           <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
