@@ -22,7 +22,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage/>}/>
           <Route path="/login" element={<LoginTeachers/>}/>
-          <Route path="/generador" element={<Sidebar/>}/>
+          <Route path="/login/generador" element={<Sidebar/>}/>
         </Routes>
       </Router>
       
