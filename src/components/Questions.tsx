@@ -1,44 +1,20 @@
 import { Box, Button, Typography } from '@mui/material'
 import Options from './Options'
 
+interface ResponseProps {
+  pregunta: string;
+  respuesta: string;
+  opciones: string[];
+}
+
 interface QuestionsProps {
   isVisible: boolean;
   setIsVisible: (isVisible: boolean) => void;
+  response: ResponseProps[];
+  setResponse: (response: ResponseProps[]) => void;
 }
 
-const response = [
-
-      {
-        "question": "¿Quién ideó la primera computadora mecánica?",
-        "options": [
-          "Charles Babbage",
-          "Alan Turing",
-          "Ada Lovelace"
-        ],
-        "answer": "Charles Babbage"
-      },
-      {
-        "question": "¿Qué sistema operativo dominó el mercado después de UNIX?",
-        "options": [
-          "Microsoft Windows",
-          "Linux",
-          "Android"
-        ],
-        "answer": "Microsoft Windows"
-      },
-      {
-        "question": "¿Qué tecnología permitió el intercambio instantáneo de información a escala global?",
-        "options": [
-          "Correo postal",
-          "Teléfono",
-          "Internet"
-        ],
-        "answer": "Internet"
-      }
-
-]
-
-const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible})=> {
+const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible, response, setResponse})=> {
   if (!isVisible) return null;
   
   const handleButtonClick = async () => {
@@ -53,7 +29,7 @@ const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible})=> {
           return (
             <Box key={index} sx={{display:'flex', flexDirection: 'column', gap:'1rem'}}>
               
-              <Options question={question.question} options={question.options} answer={question.answer}/>
+              <Options question={question.pregunta} options={question.opciones} answer={question.respuesta}/>
             </Box>
           )
         })

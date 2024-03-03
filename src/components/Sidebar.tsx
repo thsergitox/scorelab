@@ -17,7 +17,9 @@ const drawerWidth = 270
 
 
 const sidebar = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
+  const [response, setResponse] = useState([])
+
   return (
     <div className='sidebar'>
       
@@ -67,10 +69,10 @@ const sidebar = () => {
         </Drawer>
         <div style={{display:'flex', flexDirection:'column'}} className='box-content'>
           <Box sx={{display:'flex', flexDirection: 'row', gap:'1rem'}}>
-            <FormTeacher setIsVisible={setIsVisible}/>
+            <FormTeacher setIsVisible={setIsVisible} setResponse={setResponse}/>
             <Instructions/>
           </Box>
-          <Questions setIsVisible={setIsVisible} isVisible={isVisible} />
+          <Questions setIsVisible={setIsVisible} isVisible={isVisible} response={response}  setResponse={setResponse}/>
           <Qrlink isVisible={false} link='' />
         </div>
     </div>
