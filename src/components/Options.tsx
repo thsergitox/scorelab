@@ -72,7 +72,7 @@ const Options: React.FC<Props> = ( {question, options, answer} ) => {
           </RadioGroup>
           <FormHelperText>{helperText}</FormHelperText>
           <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
-            enviar
+            VERIFICAR
           </Button>
         </FormControl>
       </form>
