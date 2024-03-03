@@ -17,21 +17,20 @@ const Quiz = () => {
   const location = useLocation()
   const rutaActual = location.pathname
   const id = rutaActual.substring(rutaActual.lastIndexOf('/') + 1)
-  const [visible, setVisible] = useState(false)
-  console.log(id)
 
   const [tema, setTema] = useState('');
   const [response, setResponse] = useState<PropsData[]>([]);
 
   useEffect(() => {
     
-    axios.get(`https://scorelabapi-dev-ggdp.2.us-1.fl0.io/api/questionnaires/${id}`)
+    axios.get(`${import.meta.env.VITE_REACT_API_URL}/api/questionnaires/${id}`)
     .then((response) => {
       console.log(response.data);
       setTema(response.data.title);
       setResponse(response.data.questions.questions);
     }).then((error) => {
       console.log(error);
+      
     })
   
   
