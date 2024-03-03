@@ -38,7 +38,7 @@ const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible, respons
       }
       <Typography sx={{mt:'1rem'}} className="title-form">Pase el codigo qr a sus estudiantes</Typography>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:5173/questionnaires/${id}`} alt={'Codigo qr generado'} style={{width:'200px'}}/>
+        <img src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://scorelab-8v6ro6sbn-pezosergios-projects.vercel.app/questionnaires/${id}`} alt={'Codigo qr generado'} style={{width:'200px'}}/>
       </div>
       
       <Link to= {`/questionnaires/${id}`}>
