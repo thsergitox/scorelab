@@ -1,4 +1,4 @@
-import { Box, Button, Input, TextField, Typography } from "@mui/material"
+import { Box, Button, Input, StepContent, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,17 +9,17 @@ import axios from 'axios';
 
 interface FormsProps {
   setIsVisible: (isVisible: boolean) => void;
+  setResponse: (response: any) => void;
 }
 
-const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
+const FormTeacher: React.FC<FormsProps> = ({ setIsVisible, setResponse }) => {
 
 
 
   const [tema, setTema] = React.useState('');
-  const [numeroPreguntas, setNumeroPreguntas] = React.useState('');
   const [subtemas, setSubtemas] = React.useState('');
   const [tipoPregunta, setTipoPregunta] = React.useState('');
-  
+  const [content, setContent] = React.useState('');
 
   const handleChange = (event: SelectChangeEvent) => {
     setTipoPregunta(event.target.value as string);
@@ -28,15 +28,16 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
   
   const handleSubmit = async () => {
     const quizData = {
-      tema: tema,
-      subtemas: subtemas.split(', ').filter(Boolean), 
-      numeroPreguntas: numeroPreguntas,
-      tipoPregunta: tipoPregunta
-    };
+      theme: tema,
+      subThemes: subtemas.split(', ').filter(Boolean), 
+      kind: 2,
+      content: content
+    }
   
     try {
-      const response = await axios.post('', quizData);
+      const response = await axios.post('http://localhost:8000/api/questionnaires/create', quizData);
       console.log(response.data);
+      setResponse(response.data.res)
   
     } catch (error) {
       console.error("Error al enviar datos", error);
@@ -88,6 +89,15 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible }) => {
         value={subtemas}
         onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
           setSubtemas(event.target.value);
+        }}
+        sx={{bgcolor:'#F7F9FC', width:'100%'}}
+      />
+      <TextField
+        id="outlined-controlled"
+        label="Ingrese el contenido de la clase"
+        value={content}
+        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+          setContent(event.target.value);
         }}
         sx={{bgcolor:'#F7F9FC', width:'100%'}}
       />
