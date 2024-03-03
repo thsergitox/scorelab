@@ -164,8 +164,8 @@ const LandingPage = () => {
             
           </Box>
         </Box>
-        <Box sx={{mt:'4rem', bgcolor:"#0466C8", borderRadius:'40px', p:'10rem'}}>
-          <Typography  variant='h4' sx={{fontFamily:'"Staatliches", sans-serif !important', color:'#fff', fontSize:'60px', mt:'1rem'}}>ALGUNA FRASE AQUÍ</Typography>
+        <Box sx={{mt:'4rem', bgcolor:"#0466C8", borderRadius:'40px', p:'3rem'}}>
+          <Typography  variant='h4' sx={{fontFamily:'"Staatliches", sans-serif !important', color:'#fff', fontSize:'60px', mt:'1rem'}}>Únete a la revolución educativa y simplifica tu vida académica con Scorelab</Typography>
         </Box>
       </Container>
       <footer style={{backgroundColor:'#fff', color:'#000', textAlign:'center', paddingTop:'3rem'}}>
