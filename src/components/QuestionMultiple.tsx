@@ -8,8 +8,17 @@ import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
+interface Props {
+  question: string,
+  answer: string,
+  options: string[],
+}
 
-const QuestionMultiple = () => {
+
+
+
+
+const QuestionMultiple:React.FC<Props> = ( {question, answer, options} ) => {
 
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(false);
@@ -24,18 +33,16 @@ const QuestionMultiple = () => {
   
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    if (value === 'question-3') {
-      setHelperText('Respuesta correcta!');
+  
+    // Trim para eliminar espacios en blanco adicionales
+    const trimmedValue = value.trim();
+    const trimmedAnswer = answer.trim();
+  
+    if (trimmedValue === trimmedAnswer) {
+      setHelperText('¡Respuesta correcta!');
       setError(false);
-    } else if (value === 'question-2') {
-      setHelperText('Respuesta incorrecta!');
-      setError(true);
-    } else if (value === 'question-1') {
-        setHelperText('Respuesta incorrecta!');
-        setError(true);
     } else {
-      setHelperText('Por favor selecciona una opción');
+      setHelperText('¡Respuesta incorrecta!');
       setError(true);
     }
   };
@@ -51,15 +58,14 @@ const QuestionMultiple = () => {
             value={value}
             onChange={handleRadioChange}
           >
-            <Typography variant='h5' align='left' sx={{display:'flex', alignItems:'center'}}>¿Cuál es la capital de Francia?</Typography>  
-            <FormControlLabel  value="question-1" control={<Radio />} label="Lima"/>
-            <FormControlLabel value="question-2" control={<Radio />} label="Seul" />
-            <FormControlLabel value="question-3" control={<Radio />} label="Paris" />
+            <Typography variant='h5' align='left' sx={{display:'flex', alignItems:'center'}}>{question}</Typography>  
+            {
+              options.map((option, index) => {
+                return <FormControlLabel key={index} value={option} control={<Radio/>} label={option} />
+              })
+            }
+        
           </RadioGroup>
-          <FormHelperText>{helperText}</FormHelperText>
-          <Button sx={{ mt: 1, mr: 1 }} type="submit" variant="outlined">
-            enviar
-          </Button>
         </FormControl>
       </form>
   )

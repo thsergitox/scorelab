@@ -1,3 +1,43 @@
-@media screen and (max-width: 600px){
-    
+/* Para pantallas grandes como monitores de escritorio */
+@media (min-width: 1200px) {
+    .quiz-container {
+        padding: 2rem; /* Más espacio alrededor */
+    }
+    .title-form {
+        font-size: 2rem; /* Un título más grande */
+    }
+}
+
+/* Para tablets y pantallas pequeñas de escritorio */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .quiz-container {
+        padding: 1.5rem;
+    }
+    .title-form {
+        font-size: 1.75rem;
+    }
+}
+
+/* Para dispositivos móviles en orientación vertical */
+@media (max-width: 767px) {
+    .quiz-container {
+        padding: 1rem;
+        margin-top: 1rem; /* Menos espacio en la parte superior */
+    }
+    .title-form {
+        font-size: 1.5rem;
+    }
+    .question-box {
+        padding: 0.5rem; /* Menos padding en la caja de preguntas */
+    }
+}
+
+/* Para dispositivos móviles muy pequeños */
+@media (max-width: 480px) {
+    .quiz-container {
+        padding: 0.5rem;
+    }
+    .title-form {
+        font-size: 1.25rem; /* Aún más pequeño para pantallas muy pequeñas */
+    }
 }
