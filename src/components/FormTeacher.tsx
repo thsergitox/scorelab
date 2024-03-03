@@ -1,4 +1,4 @@
-import { Box, Button, Input, StepContent, TextField, Typography } from "@mui/material"
+import { Box, Button, Input, TextField, Typography } from "@mui/material"
 import '../styles/formTeacher.css'
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';

@@ -3,10 +3,7 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import FormHelperText from '@mui/material/FormHelperText';
-import Button from '@mui/material/Button';
 import { Typography } from '@mui/material';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 interface Props {
   question: string,
@@ -22,12 +19,11 @@ const QuestionMultiple:React.FC<Props> = ( {question, answer, options} ) => {
 
   const [value, setValue] = React.useState('');
   const [error, setError] = React.useState(false);
-  const [helperText, setHelperText] = React.useState('Elige una opción');
-  const [formVisible, setFormVisible] = React.useState(true);
+  // const [helperText, setHelperText] = React.useState('Elige una opción');
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue((event.target as HTMLInputElement).value);
-    setHelperText(' ');
+    // setHelperText(' ');
     setError(false);
   };
   
@@ -39,10 +35,10 @@ const QuestionMultiple:React.FC<Props> = ( {question, answer, options} ) => {
     const trimmedAnswer = answer.trim();
   
     if (trimmedValue === trimmedAnswer) {
-      setHelperText('¡Respuesta correcta!');
+      // setHelperText('¡Respuesta correcta!');
       setError(false);
     } else {
-      setHelperText('¡Respuesta incorrecta!');
+      // setHelperText('¡Respuesta incorrecta!');
       setError(true);
     }
   };

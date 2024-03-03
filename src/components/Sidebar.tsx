@@ -10,13 +10,13 @@ import FormTeacher from './FormTeacher';
 import Instructions from './Instructions';
 import Navbar from './Navbar';
 import Questions from './Questions';
-import React, { useState } from 'react';
 import Qrlink from './Qrlink';
+import { useState } from 'react'
 
 const drawerWidth = 270
 
 
-const sidebar = () => {
+const Sidebar = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [response, setResponse] = useState([])
   const [id, setId] = useState('')
@@ -73,11 +73,11 @@ const sidebar = () => {
             <FormTeacher setIsVisible={setIsVisible} setResponse={setResponse} setId={setId}/>
             <Instructions/>
           </Box>
-          <Questions setIsVisible={setIsVisible} isVisible={isVisible} response={response}  setResponse={setResponse} id={id}/>
+          <Questions setIsVisible={setIsVisible} isVisible={isVisible} response={response} id={id}/>
           <Qrlink isVisible={false} link='' />
         </div>
     </div>
   )
 }
 
-export default sidebar
+export default Sidebar

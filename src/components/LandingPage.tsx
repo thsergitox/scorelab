@@ -15,8 +15,6 @@ import AdbIcon from '@mui/icons-material/Adb';
 import '../styles/formTeacher.css'
 import ilustration from '../assets/ilustration.png';
 import ActionAreaCard from './ActionAreaCard';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import generator from '../assets/quiz-demostracion.png';
 import elegir from '../assets/elegir-preguntas.png';
 import qrimage from '../assets/Untitled.png';
 import quiz from '../assets/quiz.png';
@@ -25,12 +23,6 @@ const cards = ['Generación rápida de quizes', 'Reportes Estadísticos Detallad
 , 'Retroalimentación Instantánea', 'Acceso en Cualquier Momento y Lugar', 'Equidad y transparencia en la Evaluación']
 
 const LandingPage = () => {
-
-  const navigate = useNavigate();
-  
-  const handleCreateEvaluationClick = () => {
-    navigate("/generador"); // Usa la función navigate con la ruta a la que deseas ir
-  };
 
   return (
 
@@ -57,7 +49,7 @@ const LandingPage = () => {
               SCORE<span style={{color:'#043C7C'}}>LAB</span>
             </Typography>
   
-            <Box onClick={handleCreateEvaluationClick} sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+            <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
