@@ -10,9 +10,10 @@ import axios from 'axios';
 interface FormsProps {
   setIsVisible: (isVisible: boolean) => void;
   setResponse: (response: any) => void;
+  setId: (id: string) => void;
 }
 
-const FormTeacher: React.FC<FormsProps> = ({ setIsVisible, setResponse }) => {
+const FormTeacher: React.FC<FormsProps> = ({ setIsVisible, setResponse, setId}) => {
 
 
 
@@ -35,9 +36,11 @@ const FormTeacher: React.FC<FormsProps> = ({ setIsVisible, setResponse }) => {
     }
   
     try {
-      const response = await axios.post('http://localhost:8000/api/questionnaires/create', quizData);
+      const response = await axios.post('https://scorelabapi-dev-ggdp.2.us-1.fl0.io/api/questionnaires/create', quizData);
       console.log(response.data);
       setResponse(response.data.res)
+      setId(response.data.id)
+      console.log(response.data.id)
   
     } catch (error) {
       console.error("Error al enviar datos", error);

@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material'
 import Options from './Options'
+import { Link } from 'react-router-dom'
 
 interface ResponseProps {
   pregunta: string;
@@ -12,9 +13,10 @@ interface QuestionsProps {
   setIsVisible: (isVisible: boolean) => void;
   response: ResponseProps[];
   setResponse: (response: ResponseProps[]) => void;
+  id: string;
 }
 
-const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible, response, setResponse})=> {
+const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible, response, setResponse, id})=> {
   if (!isVisible) return null;
   
   const handleButtonClick = async () => {
@@ -35,6 +37,9 @@ const Questions: React.FC<QuestionsProps> = ({ isVisible , setIsVisible, respons
         })
       }
       <Button onClick={handleButtonClick} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none', width:'200px', alignSelf:'self-start'}}>Crear Quiz</Button>
+      <Link to= {`/questionnaires/${id}`}>
+        <Button onClick={handleButtonClick} variant="contained" sx={{bgcolor:'#043C7C', color:'#fff', borderRadius:'20px', marginTop:'1rem', border:'none', width:'200px', alignSelf:'self-start'}}>Ver Quiz</Button>
+       </Link>
     </Box>
   );
 };
