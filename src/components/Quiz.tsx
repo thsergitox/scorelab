@@ -45,13 +45,12 @@ const response = [
 
 ]
 
-const Quiz:React.FC<PropsData> = ({tema, data}) => {
+const Quiz = () => {
 
 
 
 
-  data = response;
-  tema = 'Tecnología'
+  const tema:string = 'Tecnología'
 
 
 
